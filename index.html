@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runner Checkpoint Logger</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="section" id="auth-container">
+      <div class="section-header">
+        <h2><i class="fas fa-lock"></i> Admin Login</h2>
+      </div>
+      <div class="section-body">
+        <div class="input-group">
+          <div class="input-wrapper">
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter admin password">
+          </div>
+        </div>
+        <div class="button-group">
+          <button onclick="authenticateAdmin()"><i class="fas fa-sign-in-alt"></i> Login</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="main-content" style="display: none;">
+      <header>
+        <div class="header-container">
+          <div class="logo">
+            <i class="fas fa-running logo-icon"></i>
+            <h1>Runner Checkpoint Logger</h1>
+          </div>
+          <div class="event-name">
+            <h2 id="currentRaceEventName">Not Set</h2>
+          </div>
+          <nav>
+            <a href="index.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="leaderboard.html"><i class="fas fa-trophy"></i> Leaderboard</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <button class="logout-btn" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+          </nav>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-map-marker-alt"></i> Log Checkpoint</h2>
+        </div>
+        <div class="section-body">
+          <div class="input-group">
+            <div class="input-wrapper">
+              <label for="runnerId">Runner ID</label>
+              <input type="text" id="runnerId" list="runnerIdList" placeholder="Enter Runner ID">
+              <datalist id="runnerIdList"></datalist>
+            </div>
+            <div class="button-group">
+              <button onclick="logCheckpoint()"><i class="fas fa-check"></i> Log Checkpoint</button>
+              <button onclick="flagOffRace()" class="secondary"><i class="fas fa-flag"></i> Flag Off</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-list"></i> Checkpoint Log</h2>
+        </div>
+        <div class="section-body">
+          <div class="input-group">
+            <div class="input-wrapper">
+              <label for="searchInput">Search Runner ID</label>
+              <input type="text" id="searchInput" placeholder="Enter Runner ID to search">
+            </div>
+          </div>
+          <div class="log-container">
+            <ul class="log-list" id="checkpointLog"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-database"></i> Data Management</h2>
+        </div>
+        <div class="section-body">
+          <div class="input-group">
+            <div class="input-wrapper">
+              <label for="csvFile">Import Runner Data (CSV)</label>
+              <input type="file" id="csvFile" accept=".csv" onchange="importRunnerData(this.files)">
+            </div>
+            <div class="button-group">
+              <button onclick="exportToCSV()" class="secondary"><i class="fas fa-download"></i> Export Data</button>
+              <button onclick="resetData()" class="danger"><i class="fas fa-trash"></i> Reset All Data</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-user-times"></i> Mark Runner Status</h2>
+        </div>
+        <div class="section-body">
+          <div class="input-group">
+            <div class="input-wrapper">
+              <label for="statusRunnerId">Runner ID</label>
+              <input type="text" id="statusRunnerId" list="runnerIdList" placeholder="Enter Runner ID">
+            </div>
+            <div class="button-group">
+              <button onclick="markRunnerDNS()" class="dns"><i class="fas fa-ban"></i> Mark DNS</button>
+              <button onclick="markRunnerDNF()" class="danger"><i class="fas fa-times-circle"></i> Mark DNF</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Runner Checkpoint Logger | Powered by xAI
+  </footer>
+</body>
+</html>

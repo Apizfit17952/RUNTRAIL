@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard - Runner Checkpoint Logger</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="main-content">
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <i class="fas fa-running logo-icon"></i>
+          <h1>Runner Checkpoint Logger</h1>
+        </div>
+        <div class="event-name">
+          <h2 id="leaderboardRaceEventName">Not Set</h2>
+        </div>
+        <nav>
+          <a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+          <a href="leaderboard.html" class="active"><i class="fas fa-trophy"></i> Leaderboard</a>
+          <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+          <button class="logout-btn" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+          <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <h2><i class="fas fa-trophy"></i> Race Leaderboard</h2>
+        </div>
+        <div class="section-body">
+          <div class="input-group">
+            <div class="input-wrapper">
+              <label for="searchLeaderboard">Search Runner</label>
+              <input type="text" id="searchLeaderboard" placeholder="Enter Runner ID or Name">
+            </div>
+          </div>
+          <div class="leaderboard-container">
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Runner ID</th>
+                  <th>Runner Name</th>
+                  <th>Total Time</th>
+                  <th>Status</th>
+                  <th>Progress</th>
+                  <th>Last Checkpoint</th>
+                  <th>Last Time</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboard"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 Runner Checkpoint Logger | Powered by xAI
+  </footer>
+</body>
+</html>
